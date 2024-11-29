@@ -3,7 +3,7 @@
 #include<stdio.h>
 int main()
 {
-    printf("");
+    printf("name    \t:shaikh sahil mokarram");
     printf("roll no \t:68\n");
     printf("div     \t:AIDS\n");
     printf("class   \t: a\n");
