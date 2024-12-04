@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define MAX_ROUNDS 5
+
+int main() {
+    int sequence[MAX_ROUNDS], user_input[MAX_ROUNDS], round = 1;
+    srand(time(0));
+
+    printf("Welcome to Simon Says!\n");
+
+    while (round <= MAX_ROUNDS) {
+        // Generate the sequence
+        sequence[round - 1] = rand() % 4;
+
+        // Display the sequence
+        printf("\nSimon says: ");
+        for (int i = 0; i < round; i++) {
+            printf("%d ", sequence[i]);
+        }
+        printf("\n");
+
+        // Get user input
+        printf("Repeat the sequence: ");
+        for (int i = 0; i < round; i++) {
+            scanf("%d", &user_input[i]);
+        }
+
+        // Check the user's input
+        for (int i = 0; i < round; i++) {
+            if (user_input[i] != sequence[i]) {
+                printf("\nWrong! Game over. You reached round %d.\n", round);
+                return 0;
+            }
+        }
+
+        printf("Correct! Moving to round %d.\n", round + 1);
+        round++;
+    }
+
+    printf("\nCongratulations! You completed all %d rounds!\n", MAX_ROUNDS);
+    return 0;
+}
